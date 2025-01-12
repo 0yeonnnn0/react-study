@@ -1,10 +1,10 @@
 // 2단계, Virtual DOM을 실제 DOM으로 변환
 
-import { JSDOM } from "jsdom";
+// import { JSDOM } from "jsdom";
 
-// 가상 DOM 생성
-const { window } = new JSDOM(`<html><body><div id="root"></div></body></html>`);
-const { document } = window;
+// // 가상 DOM 생성
+// const { window } = new JSDOM(`<html><body><div id="root"></div></body></html>`);
+// const { document } = window;
 
 export function render(vNode, container) {
   const dom =
@@ -20,6 +20,7 @@ export function render(vNode, container) {
 
   vNode.props.children.forEach((child) => render(child, dom));
   container.appendChild(dom);
+
   // DOM 구조를 콘솔에 출력
   console.log("생성된 Virtual DOM 구조:");
   console.dir(vNode, { depth: null });
